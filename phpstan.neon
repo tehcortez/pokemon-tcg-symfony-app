@@ -1,0 +1,23 @@
+includes:
+#    - vendor/phpstan/phpstan-doctrine/extension.neon
+#    - vendor/phpstan/phpstan-symfony/extension.neon
+#    - vendor/phpstan/phpstan/conf/bleedingEdge.neon
+
+parameters:
+    level: 9
+    paths:
+        - src
+        - tests
+#    autoload_files:
+#        - %rootDir%/../../../vendor/autoload.php
+    bootstrapFiles:
+        - %rootDir%/../../../vendor/autoload.php
+#    symfony:
+#        container_xml_path: %rootDir%/../../../var/cache/dev/App_KernelDevDebugContainer.xml
+#    doctrine:
+#         Adjust these parameters according to your project
+#        object_manager_loader: %rootDir%/../../../config/bootstrap.php
+
+    excludePaths:
+#        - %rootDir%/../../../src/Kernel.php
+#        - %rootDir%/../../../src/Entity
