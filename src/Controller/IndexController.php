@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Controller;
@@ -23,8 +24,6 @@ class IndexController extends AbstractController
 
     /**
      * List all Pokémon cards.
-     *
-     * @return     Response
      */
     #[Route('/', name: 'pokemon_card_list')]
     public function list(): Response

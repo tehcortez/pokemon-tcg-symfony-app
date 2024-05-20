@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Dto\PokemonCardDto;
@@ -9,7 +10,6 @@ namespace App\Dto\PokemonCardDto;
  */
 class AttackDto
 {
-
     /**
      * @var list<non-empty-string>
      */

@@ -41,7 +41,7 @@ class PokemonCardRepository
             'pokemon_cards_page_' . $page,
             function (ItemInterface $item) use ($page) {
                 $item->expiresAfter(3600); // Cache for 1 hour = 3600
-                $responseDto = $this->client->getCardList($this->apiUrl.'/cards?page=' . $page);
+                $responseDto = $this->client->getCardList($this->apiUrl . '/cards?page=' . $page);
 
                 if ($responseDto->getStatusCode() !== 200) {
                     throw new RuntimeException('Failed to fetch Pokémon cards: ' . $responseDto->getMessage());

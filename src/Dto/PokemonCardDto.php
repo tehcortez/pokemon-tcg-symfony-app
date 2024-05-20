@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Dto;
@@ -151,32 +152,32 @@ class PokemonCardDto
      * @param non-empty-string|null  $regulationMark
      */
     public function __construct(
-        string           $id,
-        string           $name,
-        string           $supertype,
-        array            $subtypes,
-        ?string          $level,
-        ?string          $hp,
-        array            $types,
-        ?string          $evolvesFrom,
-        array            $evolvesTo,
-        array            $rules,
+        string $id,
+        string $name,
+        string $supertype,
+        array $subtypes,
+        ?string $level,
+        ?string $hp,
+        array $types,
+        ?string $evolvesFrom,
+        array $evolvesTo,
+        array $rules,
         ?AncientTraitDto $ancientTrait,
-        array            $abilities,
-        array            $attacks,
-        array            $weaknesses,
-        array            $resistances,
-        array            $retreatCost,
-        ?int             $convertedRetreatCost,
-        SetDto           $set,
-        string           $number,
-        string           $artist,
-        ?string          $rarity,
-        ?string          $flavorText,
-        array            $nationalPokedexNumbers,
-        LegalitiesDto    $legalities,
-        ?string          $regulationMark,
-        ImagesDto        $images
+        array $abilities,
+        array $attacks,
+        array $weaknesses,
+        array $resistances,
+        array $retreatCost,
+        ?int $convertedRetreatCost,
+        SetDto $set,
+        string $number,
+        string $artist,
+        ?string $rarity,
+        ?string $flavorText,
+        array $nationalPokedexNumbers,
+        LegalitiesDto $legalities,
+        ?string $regulationMark,
+        ImagesDto $images
     ) {
         $this->id = $id;
         $this->name = $name;

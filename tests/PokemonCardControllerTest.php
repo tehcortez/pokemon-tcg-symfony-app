@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Tests;
@@ -29,7 +30,7 @@ class PokemonCardControllerTest extends WebTestCase
 
         $this->pokemonCardService->method('getPokemonCardById')->willReturn($pokemonCard);
 
-        $this->client->request('GET', '/card/'.$pokemonCard->id);
+        $this->client->request('GET', '/card/' . $pokemonCard->id);
 
         $this->assertResponseIsSuccessful();
         $this->assertSelectorTextContains('body', $pokemonCard->name);

@@ -37,7 +37,8 @@ class PokemonCardDtoMapper
      */
     public static function mapCard(array $data): PokemonCardDto
     {
-        if (!isset($data['set'])
+        if (
+            !isset($data['set'])
             || !is_array($data['set'])
             || !isset($data['set']['legalities'])
             || !is_array($data['set']['legalities'])
