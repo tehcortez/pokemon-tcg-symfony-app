@@ -37,3 +37,8 @@ services:
             - ''
             - 3600 # default lifetime of 1 hour = 3600
             - '%kernel.cache_dir%/pokemon_cards'
+
+
+    App\Controller\ErrorController:
+        tags:
+            - { name: 'controller.service_arguments' }
