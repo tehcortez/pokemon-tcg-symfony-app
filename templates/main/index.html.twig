@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pokémon Cards{% endblock %}
+
+{% block body %}
+    <h1>Pokémon Cards</h1>
+
+    <ul id="pokemonList" class="gallery">
+        {% for card in pokemonCards %}
+            <li>
+                <a href="{{ path('pokemon_card_detail', {id: card.id}) }}">
+                    <div class="zoom">
+                        <img class="pokemonImageSmall" src="{{ card.images.small }}" alt="{{ card.name }}" data-id="{{ card.id }}">
+                        <p>Name: {{ card.name }}</p>
+                        <p>ID: {{ card.id }}</p>
+                        <p>Type(s): {{ card.types | join(', ') }}</p>
+                    </div>
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+

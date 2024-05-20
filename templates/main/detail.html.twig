@@ -1,0 +1,25 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ pokemonCard.name }} Details{% endblock %}
+
+{% block body %}
+    <h1>{{ pokemonCard.name }}</h1>
+
+    <img src="{{ pokemonCard.images.large }}" alt="{{ pokemonCard.name }}">
+    <p>ID: {{ pokemonCard.id }}</p>
+    <p>Type(s): {{ pokemonCard.types|join(', ') }}</p>
+    <p>Resistances: {% for resistance in pokemonCard.resistances %}
+            {{ resistance.type }} {{ resistance.value }} </br>
+        {% endfor %}</p>
+    <p>Weaknesses: {% for weakness in pokemonCard.weaknesses %}
+            {{ weakness.type }} {{ weakness.value }} </br>
+        {% endfor %}</p>
+    <p>Attacks:</p>
+    <ul>
+        {% for attack in pokemonCard.attacks %}
+            <li>{{ attack.name }}</li>
+        {% endfor %}
+    </ul>
+
+    <a href="{{ path('pokemon_card_list') }}">Back to list</a>
+{% endblock %}
