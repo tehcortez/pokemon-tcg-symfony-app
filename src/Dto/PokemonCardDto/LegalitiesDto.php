@@ -28,11 +28,11 @@ class LegalitiesDto
      * LegalitiesDto constructor.
      *
      * @param non-empty-string|null $standard  The legality ruling for Standard. Can be either Legal, Banned, or
-     * not present.
+     *                                         not present.
      * @param non-empty-string|null $expanded  The legality ruling for Expanded. Can be either Legal, Banned, or
-     * not present.
+     *                                         not present.
      * @param non-empty-string|null $unlimited The legality ruling for Unlimited. Can be either Legal, Banned, or
-     * not present.
+     *                                         not present.
      */
     public function __construct(?string $standard = null, ?string $expanded = null, ?string $unlimited = null)
     {

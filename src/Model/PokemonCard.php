@@ -38,7 +38,7 @@ readonly class PokemonCard
      * Creates an array of PokemonCard objects from the provided list of PokemonCardDto objects.
      *
      * @param  list<PokemonCardDto> $pokemonCardDtoList The list of PokemonCardDto objects to create PokemonCard
-     * objects from.
+     *                                                  objects from.
      * @return list<self> The list of PokemonCard objects created from the list of PokemonCardDto objects.
      */
     public static function createListFromDtoList(array $pokemonCardDtoList): array

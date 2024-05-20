@@ -40,7 +40,7 @@ readonly class Resistance
      * Creates a list of Resistance objects from the provided list of ResistanceDto objects.
      *
      * @param  list<ResistanceDto> $resistanceDtoList The list of ResistanceDto objects to create Resistance objects
-     * from.
+     *                                                from.
      * @return list<self> The list of Resistance objects created from the list of ResistanceDto objects.
      */
     public static function createListFromDtoList(array $resistanceDtoList): array
