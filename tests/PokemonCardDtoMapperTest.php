@@ -15,7 +15,6 @@ use App\Dto\PokemonCardDto\ResistanceDto;
 use App\Dto\PokemonCardDto\SetDto;
 use App\Exception\BadResponseException;
 use App\Mapper\PokemonCardDtoMapper;
-use App\Tests\PokemonCardTestUtility;
 use PHPUnit\Framework\TestCase;
 
 class PokemonCardDtoMapperTest extends TestCase

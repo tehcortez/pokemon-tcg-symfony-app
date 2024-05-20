@@ -9,7 +9,6 @@ use App\Repository\PokemonCardRepository;
 use App\Service\PokemonCardService;
 use PHPUnit\Framework\TestCase;
 use Psr\Log\LoggerInterface;
-use Psr\Cache\InvalidArgumentException;
 use RuntimeException;
 
 class PokemonCardServiceTest extends TestCase

@@ -6,7 +6,6 @@ namespace App\Repository;
 
 use App\Client\RestClient;
 use App\Dto\PokemonCardDto;
-use App\Mapper\PokemonCardDtoMapper;
 use Psr\Cache\InvalidArgumentException;
 use RuntimeException;
 use Symfony\Contracts\Cache\CacheInterface;

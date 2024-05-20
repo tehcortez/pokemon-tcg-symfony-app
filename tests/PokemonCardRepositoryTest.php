@@ -9,10 +9,8 @@ use App\Dto\RestClientApiResponseDto;
 use PHPUnit\Framework\TestCase;
 use App\Repository\PokemonCardRepository;
 use App\Client\RestClient;
-use Psr\Cache\InvalidArgumentException;
 use Symfony\Contracts\Cache\CacheInterface;
 use Symfony\Contracts\Cache\ItemInterface;
-use Symfony\Contracts\HttpClient\ResponseInterface;
 
 class PokemonCardRepositoryTest extends TestCase
 {
