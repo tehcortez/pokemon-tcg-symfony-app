@@ -1,4 +1,5 @@
 <?php
+
 declare(strict_types=1);
 
 namespace App\Client;
@@ -58,7 +59,8 @@ class RestClient
                 $this->handleErrorResponse($response);
             }
 
-            if (!isset($data['page'])
+            if (
+                !isset($data['page'])
                 || !isset($data['pageSize'])
                 || !isset($data['count'])
                 || !isset($data['totalCount'])
@@ -80,10 +82,12 @@ class RestClient
                 $totalCount,
                 $data
             );
-        } catch (ClientExceptionInterface|
-            RedirectionExceptionInterface|
-            ServerExceptionInterface|
-            TransportExceptionInterface $e) {
+        } catch (
+            ClientExceptionInterface |
+            RedirectionExceptionInterface |
+            ServerExceptionInterface |
+            TransportExceptionInterface $e
+        ) {
             $this->logger->error('HTTP request failed: ' . $e->getMessage());
             throw new HttpRequestException('Unable to perform HTTP request at this time.');
         } catch (DecodingExceptionInterface $e) {
@@ -115,10 +119,12 @@ class RestClient
                 throw new BadResponseException('Unprocessable Entity: Bad JSON');
             }
             return PokemonCardDtoMapper::mapCard($data['data']);
-        } catch (ClientExceptionInterface|
-            RedirectionExceptionInterface|
-            ServerExceptionInterface|
-            TransportExceptionInterface $e) {
+        } catch (
+            ClientExceptionInterface |
+            RedirectionExceptionInterface |
+            ServerExceptionInterface |
+            TransportExceptionInterface $e
+        ) {
             $this->logger->error('HTTP request failed: ' . $e->getMessage());
             throw new HttpRequestException('Unable to perform HTTP request at this time.');
         } catch (DecodingExceptionInterface $e) {
