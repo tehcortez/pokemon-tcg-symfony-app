@@ -31,7 +31,7 @@ class IndexControllerTest extends WebTestCase
             $this->pokemonCardUtility->getPokemonCardModelTest(),
         ];
 
-        $this->pokemonCardService->method('getAllPokemonCards')->willReturn($pokemonCardList);
+        $this->pokemonCardService->method('getAllPokemonCardList')->willReturn($pokemonCardList);
 
         $this->client->request('GET', '/');
 
@@ -41,7 +41,7 @@ class IndexControllerTest extends WebTestCase
 
     public function testListThrowsException(): void
     {
-        $this->pokemonCardService->method('getAllPokemonCards')->will(
+        $this->pokemonCardService->method('getAllPokemonCardList')->will(
             $this->throwException(new RuntimeException('RuntimeException error'))
         );
 

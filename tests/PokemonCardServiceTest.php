@@ -35,7 +35,7 @@ class PokemonCardServiceTest extends TestCase
 
         $this->repository->method('getPokemonCards')->willReturn($pokemonCardDtoList);
 
-        $pokemonCards = $this->pokemonCardService->getAllPokemonCards();
+        $pokemonCards = $this->pokemonCardService->getAllPokemonCardList();
 
         $this->assertIsArray($pokemonCards);
         $this->assertCount(2, $pokemonCards);
@@ -53,7 +53,7 @@ class PokemonCardServiceTest extends TestCase
         $this->expectException(RuntimeException::class);
         $this->expectExceptionMessage('Unable to fetch Pokémon cards at this time.');
 
-        $this->pokemonCardService->getAllPokemonCards();
+        $this->pokemonCardService->getAllPokemonCardList();
     }
 
     public function testGetPokemonCardById()
