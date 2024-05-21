@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Tests;
 
+use App\Dto\RepositoryResponseDto;
 use App\Model\PokemonCard;
 use App\Repository\PokemonCardRepository;
 use App\Service\PokemonCardService;
@@ -28,12 +29,15 @@ class PokemonCardServiceTest extends TestCase
 
     public function testGetAllPokemonCards()
     {
-        $pokemonCardDtoList = [
-            $this->pokemonCardUtility->getPokemonCardDtoTest(),
-            $this->pokemonCardUtility->getPokemonCardDtoTest(),
-        ];
+        $repositoryResponseDto = new RepositoryResponseDto(
+            1,
+            [
+                $this->pokemonCardUtility->getPokemonCardDtoTest(),
+                $this->pokemonCardUtility->getPokemonCardDtoTest(),
+            ]
+        );
 
-        $this->repository->method('getPokemonCards')->willReturn($pokemonCardDtoList);
+        $this->repository->method('getPokemonCards')->willReturn($repositoryResponseDto);
 
         $pokemonCards = $this->pokemonCardService->getAllPokemonCardList();
 
