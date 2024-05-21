@@ -6,6 +6,7 @@ namespace App\Repository;
 
 use App\Client\RestClient;
 use App\Dto\PokemonCardDto;
+use App\Dto\RepositoryResponseDto;
 use Psr\Cache\InvalidArgumentException;
 use RuntimeException;
 use Symfony\Contracts\Cache\CacheInterface;
@@ -31,10 +32,9 @@ class PokemonCardRepository
      * Get a list of Pokémon cards.
      *
      * @param  positive-int $page
-     * @return list<PokemonCardDTO>
      * @throws InvalidArgumentException
      */
-    public function getPokemonCards(int $page = 1): array
+    public function getPokemonCards(int $page = 1): RepositoryResponseDto
     {
         return $this->cache->get(
             'pokemon_cards_page_' . $page,
@@ -45,7 +45,7 @@ class PokemonCardRepository
                 if ($responseDto->getStatusCode() !== 200) {
                     throw new RuntimeException('Failed to fetch Pokémon cards: ' . $responseDto->getMessage());
                 }
-                return $responseDto->getData();
+                return RepositoryResponseDto::createFromDto($responseDto);
             }
         );
     }
