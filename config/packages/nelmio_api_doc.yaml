@@ -1,8 +1,8 @@
 nelmio_api_doc:
     documentation:
         info:
-            title: My App
-            description: This is an awesome app!
+            title: Pokemon API Documentation
+            description: This API provides endpoints for managing Pokemon cards data. It allows you to retrieve information about different Pokemon cards.
             version: 1.0.0
     areas: # to filter documented areas
         path_patterns:
