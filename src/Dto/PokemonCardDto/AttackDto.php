@@ -26,9 +26,9 @@ class AttackDto
     private string $text;
 
     /**
-     * @var non-empty-string
+     * @var non-empty-string|null
      */
-    private string $damage;
+    private ?string $damage;
 
     private int $convertedEnergyCost;
 
@@ -38,10 +38,10 @@ class AttackDto
      * @param list<non-empty-string> $cost
      * @param non-empty-string       $name
      * @param non-empty-string       $text
-     * @param non-empty-string       $damage
+     * @param non-empty-string|null  $damage
      * @param int                    $convertedEnergyCost
      */
-    public function __construct(array $cost, string $name, string $text, string $damage, int $convertedEnergyCost)
+    public function __construct(array $cost, string $name, string $text, ?string $damage, int $convertedEnergyCost)
     {
         $this->cost = $cost;
         $this->name = $name;
@@ -83,9 +83,9 @@ class AttackDto
     /**
      * Get the damage amount of the attack.
      *
-     * @return non-empty-string
+     * @return non-empty-string|null
      */
-    public function getDamage(): string
+    public function getDamage(): ?string
     {
         return $this->damage;
     }
