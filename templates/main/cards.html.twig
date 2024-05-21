@@ -1,0 +1,23 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Pokémon Cards{% endblock %}
+
+{% block body %}
+    <h1>Pokémon Cards</h1>
+    <a href="{{ path('pokemon_card_list') }}">list all cards with regular Twig</a>
+    <div>
+        <label for="page-input">Page:</label>
+        <input type="number" id="page-input" min="1" max="10">
+        <button id="fetch-button">Fetch</button>
+    </div>
+
+    <div class="pagination">
+        <button id="prev-button" disabled>Previous</button>
+        <span id="page-info"></span>
+        <button id="next-button">Next</button>
+    </div>
+
+    <ul id="pokemon-cards-container" class="gallery"></ul>
+
+    <script src="{{ asset('js/pokemon-cards.js') }}"></script>
+{% endblock %}
