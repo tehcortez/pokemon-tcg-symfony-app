@@ -18,14 +18,14 @@ readonly class Attack
      * @param list<non-empty-string> $cost                The cost of the attack represented by a list of energy types.
      * @param non-empty-string       $name                The name of the attack.
      * @param non-empty-string       $text                The text or description associated with the attack.
-     * @param non-empty-string       $damage              The damage amount of the attack.
+     * @param non-empty-string|null  $damage              The damage amount of the attack.
      * @param int                    $convertedEnergyCost The total cost of the attack in terms of converted energy.
      */
     private function __construct(
         public array $cost,
         public string $name,
         public string $text,
-        public string $damage,
+        public ?string $damage,
         public int $convertedEnergyCost,
     ) {
     }
