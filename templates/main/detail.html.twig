@@ -21,5 +21,11 @@
         {% endfor %}
     </ul>
 
-    <a href="{{ path('pokemon_card_list') }}">Back to list</a>
+    <a id="regularListLink" >Back to regular list</a>
+    <a href="{{ path('pokemon_card_list_jquery') }}">Back to jQuery list</a>
+    <script>
+        let the_link = "{{path("pokemon_card_list", {'page': "PAGE_NUMBER"})}}";
+        the_link = the_link.replace("PAGE_NUMBER", localStorage.getItem('currentPage') ? localStorage.getItem('currentPage') : 1);
+        $( "#regularListLink" ).attr( 'href', the_link );
+    </script>
 {% endblock %}
