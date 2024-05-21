@@ -95,9 +95,9 @@ class PokemonCardDto
      */
     private string $number;
     /**
-     * @var non-empty-string The artist of the card.
+     * @var non-empty-string|null The artist of the card.
      */
-    private string $artist;
+    private ?string $artist;
     /**
      * @var non-empty-string|null The rarity of the card, such as "Common" or "Rare Rainbow".
      */
@@ -145,7 +145,7 @@ class PokemonCardDto
      * @param list<non-empty-string> $retreatCost
      * @param positive-int|null      $convertedRetreatCost
      * @param non-empty-string       $number
-     * @param non-empty-string       $artist
+     * @param non-empty-string|null  $artist
      * @param non-empty-string|null  $rarity
      * @param non-empty-string|null  $flavorText
      * @param list<integer>          $nationalPokedexNumbers
@@ -171,7 +171,7 @@ class PokemonCardDto
         ?int $convertedRetreatCost,
         SetDto $set,
         string $number,
-        string $artist,
+        ?string $artist,
         ?string $rarity,
         ?string $flavorText,
         array $nationalPokedexNumbers,
@@ -390,8 +390,10 @@ class PokemonCardDto
 
     /**
      * Get the artist of the card.
+     *
+     * @return non-empty-string|null
      */
-    public function getArtist(): string
+    public function getArtist(): ?string
     {
         return $this->artist;
     }
