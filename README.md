@@ -12,6 +12,7 @@ display information about Pokemon cards.
 - [Usage](#usage)
     - [Configuration](#configuration)
     - [Running the Application](#running-the-application)
+    - [API Documentation](#api-documentation)
 - [Testing](#testing)
 - [Contributing](#contributing)
 - [License](#license)
@@ -81,6 +82,16 @@ docker run -p 8080:80 pokemon-tcg-symfony-app
 ```
 Once the container is running, open your web browser and navigate to http://localhost:8080 or http://127.0.0.1:8080/ to
 access the Pokemon Card API Client.
+
+### API Documentation
+This project uses NelmioApiDocBundle to provide interactive API documentation. To access the API documentation, follow 
+these steps:
+
+1. Ensure the application is running (using one of the methods described above).
+2. Open your web browser and navigate to http://localhost:8000/api/doc if using the built-in PHP server or Symfony CLI, 
+or http://localhost:8080/api/doc if using Docker.
+The interactive API documentation will be displayed, allowing you to explore the available endpoints and test them 
+directly from the browser.
 
 ## Testing
 To run the unit tests for the application, use the following command:
