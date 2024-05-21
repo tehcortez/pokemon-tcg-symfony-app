@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Tests;
 
 use App\Dto\PokemonCardDto;
+use App\Dto\RepositoryResponseDto;
 use App\Dto\RestClientApiResponseDto;
 use PHPUnit\Framework\TestCase;
 use App\Repository\PokemonCardRepository;
@@ -55,12 +56,12 @@ class PokemonCardRepositoryTest extends TestCase
         $pokemonCardRepository = new PokemonCardRepository($client, $cache, $apiUrl);
 
         // Call the getPokemonCards method
-        $pokemonCards = $pokemonCardRepository->getPokemonCards();
+        $repositoryResponseDto = $pokemonCardRepository->getPokemonCards();
 
         // Assert the expected result
-        $this->assertIsArray($pokemonCards);
-        $this->assertCount(count($pokemonCardsData), $pokemonCards);
-        $this->assertInstanceOf(PokemonCardDto::class, $pokemonCards[0]);
+        $this->assertInstanceOf(RepositoryResponseDto::class,$repositoryResponseDto);
+        $this->assertCount(count($pokemonCardsData), $repositoryResponseDto->getPokemonCardDtoList());
+        $this->assertInstanceOf(PokemonCardDto::class, $repositoryResponseDto->getPokemonCardDtoList()[0]);
     }
 
     public function testGetPokemonCardById()
