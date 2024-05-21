@@ -5,6 +5,20 @@
 {% block body %}
     <h1>Pokémon Cards</h1>
 
+    <a href="{{ path('pokemon_card_list_jquery') }}">list all cards with jQuery</a>
+
+    <div class="pagination">
+        {% if currentPage > 1 %}
+            <a href="{{ path('pokemon_card_list', { page: currentPage - 1 }) }}">&laquo; Previous</a>
+        {% endif %}
+
+        <span>Page {{ currentPage }} of {{ totalPages }}</span>
+
+        {% if currentPage < totalPages %}
+            <a href="{{ path('pokemon_card_list', { page: currentPage + 1 }) }}">Next &raquo;</a>
+        {% endif %}
+    </div>
+
     <ul id="pokemonList" class="gallery">
         {% for card in pokemonCards %}
             <li>
@@ -19,5 +33,8 @@
             </li>
         {% endfor %}
     </ul>
+    <script>
+        localStorage.setItem('currentPage',{{ currentPage }});
+    </script>
 {% endblock %}
 
