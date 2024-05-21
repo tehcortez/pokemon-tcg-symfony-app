@@ -18,7 +18,8 @@ class PokemonCardCollectionResource
     }
 
     /**
-     * Creates a new instance of the PokemonCardCollectionResource class from a PokemonCardCollection object and a page number.
+     * Creates a new instance of the PokemonCardCollectionResource class from a PokemonCardCollection object and a page
+     * number.
      *
      * @param PokemonCardCollection $pokemonCardCollection The collection of Pokemon cards.
      * @param positive-int $page The page number.

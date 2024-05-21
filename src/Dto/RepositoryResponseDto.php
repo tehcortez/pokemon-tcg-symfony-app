@@ -60,6 +60,7 @@ class RepositoryResponseDto
         $totalCount = $responseDto->getTotalCount();
         return new self(
             totalCount: $totalCount,
-            pokemonCardDtoList: $responseDto->getData());
+            pokemonCardDtoList: $responseDto->getData()
+        );
     }
 }

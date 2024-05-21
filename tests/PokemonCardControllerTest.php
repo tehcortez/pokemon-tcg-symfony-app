@@ -48,7 +48,9 @@ class PokemonCardControllerTest extends WebTestCase
 
     public function testDetailThrowsException(): void
     {
-        $this->pokemonCardService->method('getPokemonCardById')->will($this->throwException(new RuntimeException('Some error')));
+        $this->pokemonCardService->method('getPokemonCardById')->will(
+            $this->throwException(new RuntimeException('Some error'))
+        );
 
         $this->client->request('GET', '/card/xy7-54');
 

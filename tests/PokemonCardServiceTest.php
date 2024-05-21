@@ -44,7 +44,9 @@ class PokemonCardServiceTest extends TestCase
 
     public function testGetAllPokemonCardsThrowsException()
     {
-        $this->repository->method('getPokemonCards')->will($this->throwException(new RuntimeException('Some error')));
+        $this->repository->method('getPokemonCards')->will(
+            $this->throwException(new RuntimeException('Some error'))
+        );
 
         $this->logger->expects($this->once())
             ->method('error')
@@ -69,7 +71,9 @@ class PokemonCardServiceTest extends TestCase
 
     public function testGetPokemonCardByIdThrowsException()
     {
-        $this->repository->method('getPokemonCardById')->will($this->throwException(new RuntimeException('Some error')));
+        $this->repository->method('getPokemonCardById')->will(
+            $this->throwException(new RuntimeException('Some error'))
+        );
 
         $this->logger->expects($this->once())
             ->method('error')

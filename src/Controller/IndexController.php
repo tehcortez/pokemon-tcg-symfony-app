@@ -35,8 +35,10 @@ class IndexController extends AbstractController
 
         // Validate the page parameter
         if (!is_numeric($page) || (int)$page <= 0) {
-            throw new HttpException(Response::HTTP_BAD_REQUEST,
-                'Not allowed query parameter: Page must be a positive integer');
+            throw new HttpException(
+                Response::HTTP_BAD_REQUEST,
+                'Not allowed query parameter: Page must be a positive integer'
+            );
         }
         $page = (int)$page;
 
@@ -51,7 +53,7 @@ class IndexController extends AbstractController
             [
                 'pokemonCards' => $pokemonCardCollection->getAllCards(),
                 'currentPage' => $page,
-                'totalPages' => intval(ceil($pokemonCardCollection->getTotalCardsCount()/250)),
+                'totalPages' => intval(ceil($pokemonCardCollection->getTotalCardsCount() / 250)),
             ]
         );
     }

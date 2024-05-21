@@ -21,7 +21,8 @@ class PokemonCardCollection
     /**
      * @param non-negative-int $totalCardsCount
      */
-    private function __construct(int $totalCardsCount) {
+    private function __construct(int $totalCardsCount)
+    {
         $this->totalCardsCount = $totalCardsCount;
     }
 
