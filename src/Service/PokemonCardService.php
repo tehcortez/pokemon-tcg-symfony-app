@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Service;
 
+use App\Collection\PokemonCardCollection;
 use App\Model\PokemonCard;
 use App\Repository\PokemonCardRepository;
 use Psr\Cache\InvalidArgumentException;
@@ -26,18 +27,36 @@ class PokemonCardService
     /**
      * Get all Pokémon cards.
      *
+     * @param  positive-int $page
      * @return list<PokemonCard>
      * @throws InvalidArgumentException
      */
-    public function getAllPokemonCards(): array
+    public function getAllPokemonCardList(int $page = 1): array
     {
         try {
-            $pokemonCardDtoList = $this->repository->getPokemonCards();
+            $repositoryResponseDto = $this->repository->getPokemonCards($page);
         } catch (\RuntimeException $e) {
             $this->logger->error('Error fetching Pokémon cards: ' . $e->getMessage());
             throw new \RuntimeException('Unable to fetch Pokémon cards at this time.');
         }
-        return PokemonCard::createListFromDtoList($pokemonCardDtoList);
+        return PokemonCard::createListFromDtoList($repositoryResponseDto->getPokemonCardDtoList());
+    }
+
+    /**
+     * Get a collection of all Pokemon cards.
+     *
+     * @param  positive-int $page
+     * @throws InvalidArgumentException
+     */
+    public function getPokemonCardCollection(int $page = 1): PokemonCardCollection
+    {
+        try {
+            $repositoryResponseDto = $this->repository->getPokemonCards($page);
+        } catch (\RuntimeException $e) {
+            $this->logger->error('Error fetching Pokémon cards: ' . $e->getMessage());
+            throw new \RuntimeException('Unable to fetch Pokémon cards at this time.');
+        }
+        return PokemonCardCollection::createFromDtoList($repositoryResponseDto);
     }
 
     /**
