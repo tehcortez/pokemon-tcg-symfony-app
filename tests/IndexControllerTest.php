@@ -4,6 +4,9 @@ declare(strict_types=1);
 
 namespace App\Tests;
 
+use App\Collection\PokemonCardCollection;
+use App\Dto\RepositoryResponseDto;
+use App\Dto\RestClientApiResponseDto;
 use App\Service\PokemonCardService;
 use RuntimeException;
 use Symfony\Bundle\FrameworkBundle\KernelBrowser;
@@ -27,21 +30,21 @@ class IndexControllerTest extends WebTestCase
 
     public function testList(): void
     {
-        $pokemonCardList = [
-            $this->pokemonCardUtility->getPokemonCardModelTest(),
-        ];
+        $pokemonCardCollection = PokemonCardCollection::createFromDtoList(
+            new RepositoryResponseDto(1, [$this->pokemonCardUtility->getPokemonCardDtoTest()])
+        );
 
-        $this->pokemonCardService->method('getAllPokemonCardList')->willReturn($pokemonCardList);
+        $this->pokemonCardService->method('getPokemonCardCollection')->willReturn($pokemonCardCollection);
 
         $this->client->request('GET', '/');
 
         $this->assertResponseIsSuccessful();
-        $this->assertSelectorTextContains('body', $pokemonCardList[0]->name);
+        $this->assertSelectorTextContains('body', $pokemonCardCollection->getAllCards()[0]->name);
     }
 
     public function testListThrowsException(): void
     {
-        $this->pokemonCardService->method('getAllPokemonCardList')->will(
+        $this->pokemonCardService->method('getPokemonCardCollection')->will(
             $this->throwException(new RuntimeException('RuntimeException error'))
         );
 
